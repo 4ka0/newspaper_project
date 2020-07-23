@@ -20,6 +20,9 @@
             <p>{{ comment.author }} &middot; {{ comment }}</p>
         {% endfor %}
 
+        <!-- Link to add a new comment -->
+        <p><a href="{% url 'comment_new' article.pk %}">New comment</a></p>
+
         <!-- Link to article list view -->
         <p><a href="{% url 'article_list' %}">Back to all articles</a></p>
 

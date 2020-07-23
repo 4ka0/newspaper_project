@@ -24,7 +24,7 @@ class Comment(models.Model):
     '''
     The next line links the comment model to the article model through the use
     of a foreign key, and also sets a many-to-one relationship from the comment
-    model to te article model. It requires two positional arguments: the other
+    model to the article model. It requires two positional arguments: the other
     model to which this model is related and the on_delete option.
     '''
     article = models.ForeignKey(
