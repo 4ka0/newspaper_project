@@ -3,33 +3,33 @@
 {% block title %}Articles{% endblock title %}
 
 {% block content %}
+
     {% for article in object_list %}
         <div class="card">
 
             <!-- Header -->
-            <div class="card-header">
-                <span class="font-weight-bold">{{ article.title }}</span> &middot;
-                <span class="text-muted">by {{ article.author }} | {{ article.date }}</span>
+            <div class="card-header bg-light" >
+                <h5><a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></h5>
+                <span class="text-muted">{{ article.author }} &middot; {{ article.date }}</span>
             </div>
 
             <!-- Body -->
             <div class="card-body">
-                <p>{{ article.body|slice:":400" }}...</p>
-                <a href="{% url 'article_edit' article.pk %}">Edit</a> |
-                <a href="{% url 'article_delete' article.pk %}">Delete</a>
+                {{ article.body|slice:":400" }}...
             </div>
 
             <!-- Footer -->
+            <!-- Show number of comments -->
             <div class="card-footer text-muted">
-                {% for comment in article.comments.all %}
-                    <p>
-                        <span class="font-weight-bold">{{ comment.author }} &middot;</span>
-                        {{ comment }}
-                    </p>
-                {% endfor %}
+                {% if article.comments.count == 1 %}
+                    {{ article.comments.count }} comment
+                {% else %}
+                    {{ article.comments.count }} comments
+                {% endif %}
             </div>
 
         </div>
         <br />
     {% endfor %}
+
 {% endblock content %}
