@@ -4,30 +4,26 @@
 
     <div class="article-entry">
         <h2>{{ object.title }}</h2>
-        <p>{{ object.author }} &middot; {{ object.date }}</p>
-        <p>{{ object.body }}</p>
+        <p class="text-muted">{{ object.author }} &middot; {{ object.date }}</p>
+        <p>{{ object.body|linebreaksbr }}</p>
 
         <!-- Show edit/delete links if user is the author -->
         {% if user == article.author %}
-            <p>
-                <a href="{% url 'article_edit' article.pk %}">Edit</a> |
-                <a href="{% url 'article_delete' article.pk %}">Delete</a>
-            </p>
+            <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-info mr-2 mb-3">Edit article</a>
+            <a href="{% url 'article_delete' article.pk %}" class="btn btn-outline-danger mb-3">Delete article</a>
         {% endif %}
 
-        <!-- Display all comments associated with article -->
+        <!-- Number of comments -->
+        <p><strong>{{ article.comments.count }} comment{{ article.comments.count|pluralize }}</strong></p>
+
+        <!-- Comments themselves -->
         {% for comment in article.comments.all %}
-            <p>{{ comment.author }} &middot; {{ comment }}</p>
+            <p class="text-muted">{{ comment.author }} &middot; {{ comment }}</p>
         {% endfor %}
 
-        <!-- Link to add a new comment -->
-        <p><a href="{% url 'comment_new' article.pk %}">New comment</a></p>
-
         <!-- Link to article list view -->
-        <p><a href="{% url 'article_list' %}">Back to all articles</a></p>
+        <p><a href="{% url 'article_list' %}" class="btn btn-outline-primary">Back to all articles</a></p>
 
     </div>
-
-
 
 {% endblock content %}

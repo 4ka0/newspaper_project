@@ -43,31 +43,15 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 '''
 Uses LoginRequiredMixin to restrict access to this view to only users who are
-logged in. Make sure to include LoginRequiredMixin before CreateView.
+logged in. Necessary to include LoginRequiredMixin before CreateView.
 '''
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     template_name = 'article_new.html'
     fields = ('title', 'body')
-    login_url = 'login'  # overrides the default login url (/accounts/login)
+    login_url = 'login'  # overrides the default login url which is /accounts/login
 
-    # Set the current user as the author of a new article
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-
-'''
-Uses LoginRequiredMixin to restrict access to this view to only users who are
-logged in. Make sure to include LoginRequiredMixin before CreateView.
-'''
-class CommentCreateView(LoginRequiredMixin, CreateView):
-    model = Comment
-    template_name = 'comment_new.html'
-    fields = ('comment',)
-    login_url = 'login'  # overrides the default login url (/accounts/login)
-
-    # Set the current user as the author of a new article
+    # Automatically sets the current user as the author of the new article
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)

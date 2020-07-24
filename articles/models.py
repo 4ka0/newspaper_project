@@ -17,6 +17,8 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
+        # This is the page that is shown after the new article has been added
+        # In this case it's the detail view of the new article
         return reverse('article_detail', args=[str(self.id)])
 
 
@@ -30,8 +32,8 @@ class Comment(models.Model):
     article = models.ForeignKey(
         Article,
         on_delete=models.CASCADE,
-        related_name='comments'  # Used in the template, in the template {% for comment in article.comments.all %}
-    )
+        related_name='comments'  # Used in the template, in the template
+    )                            # {% for comment in article.comments.all %}
 
     '''
     This line links the comment model to the custom user model in a similar
@@ -48,4 +50,4 @@ class Comment(models.Model):
         return self.comment
 
     def get_absolute_url(self):
-        return reverse('article_list')
+        return reverse('article_detail')

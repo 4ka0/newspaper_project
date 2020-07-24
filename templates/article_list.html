@@ -21,18 +21,17 @@
                     <div class="card-body">
                         <p class="card-text">{{ article.body|slice:":200" }}...</p>
                         <a href="{% url 'article_detail' article.pk %}" class="btn btn-outline-primary">Read more</a>
+                        <!-- Show edit/delete links if user is the author -->
+                        {% if user == article.author %}
+                            <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-info mx-2">Edit</a>
+                            <a href="{% url 'article_delete' article.pk %}" class="btn btn-outline-danger">Delete</a>
+                        {% endif %}
                     </div>
-
-
 
                     <!-- Footer -->
                     <!-- Show number of comments if any -->
                     <div class="card-footer text-muted">
-                        {% if article.comments.count == 1 %}
-                            {{ article.comments.count }} comment
-                        {% else %}
-                            {{ article.comments.count }} comments
-                        {% endif %}
+                        {{ article.comments.count }} comment{{ article.comments.count|pluralize }}
                     </div>
 
                 </div>
@@ -40,13 +39,5 @@
 
         {% endfor %}
     </div>
-
-
-
-
-
-
-
-
 
 {% endblock content %}
