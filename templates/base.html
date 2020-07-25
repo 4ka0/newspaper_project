@@ -30,28 +30,21 @@
                 <!-- Action button card -->
                 <div class="card mt-4">
                     <div class="card-body text-center">
-                        <a class="btn btn-outline-primary mb-4" href="{% url 'article_list' %}" role="button">All articles</a>
-                        <a class="btn btn-outline-primary" href="{% url 'article_new' %}" role="button">New article</a>
-                    </div>
-                </div>
-
-                <!-- User status card -->
-                <div class="card mt-4">
-                    <div class="card-body text-center">
+                        <p><a href="{% url 'article_list' %}">All articles</a></p>
+                        <p><a href="{% url 'article_new' %}">New article</a></p>
+                        <hr>
                         {% if user.is_authenticated %}
-                            <p class="text-muted">Logged in as "{{ user.username }}".</p>
+                            <p class="text-muted">Logged in as "{{ user.username }}"</p>
                             <!-- Log out button -->
-                            <a class="btn btn-outline-primary mt-2 mb-4" href="{% url 'logout' %}" role="button">Log out</a>
+                            <p><a href="{% url 'logout' %}">Log out</a></p>
                             <!-- Change password button -->
-                            <a class="btn btn-outline-primary" href="{% url 'password_change'%}" role="button">Change password</a>
-
+                            <p><a href="{% url 'password_change'%}">Change password</a></p>
                         {% else %}
                             <p class="text-muted">You are not logged in.</p>
                             <!-- Log in button -->
                             <a class="btn btn-outline-primary mr-2" href="{% url 'login' %}" role="button">Log in</a>
                             <!-- Sign up button -->
                             <a class="btn btn-outline-primary" href="{% url 'signup' %}" role="button">Sign up</a>
-
                         {% endif %}
                     </div>
                 </div>
