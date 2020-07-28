@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="background-color: #F8F9FA">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -20,7 +20,7 @@
             <div class="col-12 bg-primary" >
                 <div class="col-12 bg-primary py-4">
                     <h2 class="text-center text-light">Simple Newspaper - Powered by Django and Styled with Bootstrap</h2>
-                    <h4 class="text-center text-light">Built Using Chapters 8-15 of "Django for Beginners" by Will Vincent</h4>
+                    <h4 class="text-center text-light">Built Using Chapters 8-15 of <a href="https://djangoforbeginners.com" target="_blank" style="color:inherit">"Django for Beginners"</a></h4>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
             <div class="col-2 bg-light pl-4">
 
                 <!-- Action button card -->
-                <div class="card mt-4">
+                <div class="card mt-4 pt-2">
                     <div class="card-body text-center">
                         <p><a href="{% url 'article_list' %}">All articles</a></p>
                         <p><a href="{% url 'article_new' %}">New article</a></p>
@@ -42,9 +42,9 @@
                         {% else %}
                             <p class="text-muted">You are not logged in.</p>
                             <!-- Log in button -->
-                            <a class="btn btn-outline-primary mr-2" href="{% url 'login' %}" role="button">Log in</a>
+                            <p><a href="{% url 'login' %}">Log in</a></p>
                             <!-- Sign up button -->
-                            <a class="btn btn-outline-primary" href="{% url 'signup' %}" role="button">Sign up</a>
+                            <p><a href="{% url 'signup' %}">Sign up</a></p>
                         {% endif %}
                     </div>
                 </div>

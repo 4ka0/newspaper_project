@@ -2,28 +2,38 @@
 
 {% block content %}
 
+<div class="card mb-4">
     <div class="article-entry">
-        <h2>{{ object.title }}</h2>
-        <p class="text-muted">{{ object.author }} &middot; {{ object.date }}</p>
-        <p>{{ object.body|linebreaksbr }}</p>
 
-        <!-- Show edit/delete links if user is the author -->
-        {% if user == article.author %}
-            <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-info mr-2 mb-3">Edit article</a>
-            <a href="{% url 'article_delete' article.pk %}" class="btn btn-outline-danger mb-3">Delete article</a>
-        {% endif %}
+        <div class="card-header bg-light" >
+            <h2>{{ object.title }}</h2>
+            {{ object.author }} &middot; {{ object.date }}
+        </div>
 
-        <!-- Number of comments -->
-        <p><strong>{{ article.comments.count }} comment{{ article.comments.count|pluralize }}</strong></p>
+        <div class="card-body">
+            {{ object.body|linebreaksbr }}<br />
 
-        <!-- Comments themselves -->
-        {% for comment in article.comments.all %}
-            <p class="text-muted">{{ comment.author }} &middot; {{ comment }}</p>
-        {% endfor %}
+            <!-- Show edit/delete links if user is the author -->
+            {% if user == article.author %}
+                <a class="btn btn-outline-info mr-4 mt-4 mb-2" href="{% url 'article_edit' article.pk %}">Edit article</a>
+                <a class="btn btn-outline-danger mt-4 mb-2" href="{% url 'article_delete' article.pk %}">Delete article</a>
+            {% endif %}
+        </div>
 
-        <!-- Link to article list view -->
-        <p><a href="{% url 'article_list' %}" class="btn btn-outline-primary">Back to all articles</a></p>
+        <div class="card-footer text-muted pb-4">
+            <!-- Number of comments -->
+            <p><strong>{{ article.comments.count }} comment{{ article.comments.count|pluralize }}</strong></p>
+
+            <!-- Comments themselves -->
+            {% for comment in article.comments.all %}
+                <p class="text-muted">{{ comment.author }} &middot; {{ comment }}</p>
+            {% endfor %}
+
+            <!-- Link to article list view -->
+            <a class="btn btn-outline-primary mt-2" href="{% url 'article_list' %}">Back to all articles</a>
+        </div>
 
     </div>
+</div>
 
 {% endblock content %}
