@@ -127,7 +127,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 
 # User authentication
@@ -140,14 +139,15 @@ LOGOUT_REDIRECT_URL = 'home'
 # For django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# Sending email during production
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # Sending email when deployed
+
+DEFAULT_FROM_EMAIL = 'The Newspaper Project<jage@fastmail.com>'
+
+# When using python-decouple
+EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-DEFAULT_FROM_EMAIL = 'The Newspaper Project<jage@fastmail.com>'  # 'domain<address>'
