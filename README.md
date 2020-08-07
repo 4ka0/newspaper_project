@@ -41,7 +41,10 @@ Includes separation of sensitive information from the codebase through the use o
 * macOS 10.14.6
 * Heroku
 
-### Screenshot:
+### Screenshots:
 
-![alt text](readme_screenshot_1.png "Article list screenshot")
+List view
+![alt text](readme_screenshot_1.png "Article list screenshot")</br>
+
+Detail view
 ![alt text](readme_screenshot_2.png "Article detail screenshot")
