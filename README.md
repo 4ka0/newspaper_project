@@ -21,10 +21,10 @@ Uses an Article model for newspaper articles, including an author field that is 
 Uses ListView, DetailView, CreateView, UpdateView, and DeleteView from Django's generic class-based views to provide CRUD functionality 
 for handling articles.</br>
 
-Includes user authorization by use of mixins, specifically the LoginRequiredMixin to restrict access to logged-in users when viewing, creating, updating, 
-and deleting an article, and the UserPassesTestMixin to further restrict access to article authors when updating or deleting an article.</br>
+Includes user authorization through the use of mixins, specifically the LoginRequiredMixin to restrict access to logged-in users when viewing, creating, updating, 
+or deleting an article, and the UserPassesTestMixin to further restrict access to article authors when updating or deleting an article.</br>
 
-Includes basic comment functionality for each article (only through the admin app at this stage) through use of a basic Comment model, which is linked to 
+Includes basic comment functionality for each article (only through the admin app at this stage) through the use of a basic Comment model, which is linked to 
 User and Article models via foreign keys.</br>
 
 Includes separation of sensitive information from the codebase through the use of python-decouple.</br>
