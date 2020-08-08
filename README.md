@@ -40,6 +40,7 @@ Includes separation of sensitive information from the codebase through the use o
 * Visual Studio Code 1.47.3
 * macOS 10.14.6
 * Heroku
+* Pipenv
 
 ### Screenshots:
 
