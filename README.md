@@ -1,4 +1,4 @@
-# newspaper_project
+# Newspaper Project
 
 ### Overview
 
