@@ -22,7 +22,7 @@
             <div class="card-footer text-muted pb-4">
 
                 <!-- Add comment button -->
-                <a class="btn btn-outline-primary my-2" href="{% url 'add_comment_to_article' pk=article.pk %}">Add comment</a>
+                <a class="btn btn-outline-primary mt-2 mb-3" href="{% url 'add_comment_to_article' pk=article.pk %}">Add comment</a>
 
                 <!-- Number of comments -->
                 <p><strong>{{ article.comments.count }} comment{{ article.comments.count|pluralize }}</strong></p>
@@ -33,7 +33,7 @@
                 {% endfor %}
 
                 <!-- Link to article list view -->
-                <a class="btn btn-outline-primary mt-2" href="{% url 'article_list' %}">Back to all articles</a>
+                <a class="btn btn-outline-primary mt-1" href="{% url 'article_list' %}">Back to all articles</a>
             </div>
 
         </div>
