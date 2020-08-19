@@ -2,8 +2,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Article, Comment
+from .forms import CommentForm
 
 
 class ArticleListView(LoginRequiredMixin, ListView):
@@ -55,3 +57,17 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+def add_comment_to_article(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.article = article
+            comment.save()
+            return redirect('article_detail', pk=article.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'add_comment_to_article.html', {'form': form})
