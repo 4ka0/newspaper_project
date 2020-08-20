@@ -130,10 +130,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
 
+# Location of static files during development
+# Here this is a top-level directory
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+# Location from which static files are served in production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # User authentication

@@ -18,7 +18,7 @@
 
     <!-- Top banner -->
     <div class="page-header">
-        <h1><a href="/">Simple Newspaper</a></h1>
+        <h1><a href="{% url 'article_list' %}">Simple Newspaper</a></h1>
     </div>
 
     <div class="container-fluid">
@@ -28,20 +28,20 @@
             <div class="col-2 pl-4">
 
                 <!-- Action button card -->
-                <div class="card mt-4 pt-2">
+                <div class="card mt-4 pt-2 article-title">
                     <div class="card-body text-center">
-                        <p><a href="{% url 'home' %}">Top</a></p>
+                        <p><a href="{% url 'home' %}">About</a></p>
                         <p><a href="{% url 'article_list' %}">All articles</a></p>
                         <p><a href="{% url 'article_new' %}">New article</a></p>
                         <hr>
                         {% if user.is_authenticated %}
-                            <p class="text-muted">Logged in as "{{ user.username }}"</p>
+                            <p>Logged in as "{{ user.username }}"</p>
                             <!-- Log out button -->
                             <p><a href="{% url 'logout' %}">Log out</a></p>
                             <!-- Change password button -->
                             <p><a href="{% url 'password_change'%}">Change password</a></p>
                         {% else %}
-                            <p class="text-muted">You are not logged in.</p>
+                            <p>You are not logged in.</p>
                             <!-- Log in button -->
                             <p><a href="{% url 'login' %}">Log in</a></p>
                             <!-- Password reset -->

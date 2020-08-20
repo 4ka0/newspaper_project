@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <div class="card mb-4">
+    <div class="card mb-5">
         <div class="article-entry">
 
-            <div class="card-header bg-light" >
-                <h3>{{ object.title }}</h3>
+            <div class="card-header" >
+                <h3 class="article-title">{{ object.title }}</h3>
                 {{ object.author }} &middot; {{ object.date }}
             </div>
 
@@ -20,21 +20,18 @@
                 {% endif %}
             </div>
 
-            <div class="card-footer text-muted pb-4">
+            <div class="card-footer text-muted bg-light">
 
                 <!-- Add comment button -->
                 <a class="btn btn-outline-primary mt-2 mb-3" href="{% url 'add_comment_to_article' pk=article.pk %}">Add comment</a>
 
                 <!-- Number of comments -->
-                <p><strong>{{ article.comments.count }} comment{{ article.comments.count|pluralize }}</strong></p>
+                <p>{{ article.comments.count }} comment{{ article.comments.count|pluralize }}</p>
 
                 <!-- Comments themselves -->
                 {% for comment in article.comments.all %}
-                    <p class="text-muted">{{ comment.author }} &middot; {{ comment }}</p>
+                    <p class="text-muted"><strong>{{ comment.author }}</strong> &middot; {{ comment }}</p>
                 {% endfor %}
-
-                <!-- Link to article list view -->
-                <a class="btn btn-outline-primary mt-1" href="{% url 'article_list' %}">Back to all articles</a>
             </div>
 
         </div>
