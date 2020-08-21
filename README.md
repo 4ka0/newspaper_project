@@ -18,16 +18,15 @@ Includes password change and password reset functionality via email using SendGr
 
 Uses an Article model for newspaper articles, including an author field that is linked to the custom user model via a foreign key.</br>
 
-Uses ListView, DetailView, CreateView, UpdateView, and DeleteView from Django's generic class-based views to provide CRUD functionality 
-for handling articles.</br>
+Uses ListView, DetailView, CreateView, UpdateView, and DeleteView from Django's generic class-based views to provide CRUD functionality for handling articles.</br>
 
-Includes user authorization through the use of mixins, specifically the LoginRequiredMixin to restrict access to logged-in users when viewing, creating, updating, 
-or deleting an article, and the UserPassesTestMixin to further restrict access to article authors when updating or deleting an article.</br>
+Includes user authorization through the use of mixins, specifically the LoginRequiredMixin to restrict access to logged-in users when viewing, creating, updating, or deleting an article, and the UserPassesTestMixin to further restrict access to article authors when updating or deleting an article.</br>
 
-Includes basic comment functionality for each article (only through the admin app at this stage) through the use of a basic Comment model, which is linked to 
-User and Article models via foreign keys.</br>
-
-Includes separation of sensitive information from the codebase through the use of python-decouple.</br>
+Extended beyond the textbook by:</br>
+* separating sensitive information from the codebase using python-decouple,
+* adding functionality to upload images,
+* making it possible to add comments to articles from the front end rather than only via the back-end admin app, and
+* improving the front-end styling.</br>
 
 ### Built using:
 
@@ -44,8 +43,8 @@ Includes separation of sensitive information from the codebase through the use o
 
 ### Screenshots:
 
-List view
+List view:
 ![alt text](readme_screenshot_1.png "Article list screenshot")</br>
 
-Detail view
+Detail view:
 ![alt text](readme_screenshot_2.png "Article detail screenshot")
