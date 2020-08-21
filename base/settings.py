@@ -130,9 +130,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Location of static files during development, here this is a top-level directory
-STATICFILES_DIRS = [
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-]
+)
 
 # Location from which static files are served in production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
