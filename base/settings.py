@@ -125,9 +125,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
+# Static files URL
 STATIC_URL = '/static/'
 
 # Location of static files during development
@@ -154,7 +152,6 @@ LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Sending email when deployed
-
 DEFAULT_FROM_EMAIL = 'The Newspaper Project<jage@fastmail.com>'
 
 # When using python-decouple

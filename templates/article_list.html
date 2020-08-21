@@ -11,34 +11,36 @@
 
         {% for article in object_list %}
 
+            <div class="card mb-4">
 
-                <div class="card mb-4">
-
-                    <!-- Header -->
-                    <div class="card-header" >
-                        <h5 class="article-title"><a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></h5>
-                        <span class="text-muted">{{ article.author }} &middot; {{ article.date }}</span>
-                    </div>
-
-                    <!-- Body -->
-                    <div class="card-body">
-                        <img class="card-img-top pb-3" src="{{ article.image.url }}" alt="Article image">
-                        <p class="card-text">{{ article.body|slice:":100" }}...</p>
-                        <!-- Show edit/delete links if user is the author -->
-                        {% if user == article.author %}
-                            <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-info mx-2">Edit</a>
-                            <a href="{% url 'article_delete' article.pk %}" class="btn btn-outline-danger">Delete</a>
-                        {% endif %}
-                    </div>
-
-                    <!-- Footer -->
-                    <!-- Show number of comments if any -->
-                    <div class="card-footer text-muted bg-light">
-                        {{ article.comments.count }} comment{{ article.comments.count|pluralize }}
-                    </div>
-
+                <!-- Header -->
+                <div class="card-header" >
+                    <h5 class="article-title">
+                        <a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a>
+                    </h5>
+                    <span class="text-muted">{{ article.author }} &middot; {{ article.date }}</span>
                 </div>
-            
+
+                <!-- Body -->
+                <div class="card-body">
+                    <a href="{% url 'article_detail' article.pk %}">
+                        <img class="card-img-top pb-3" src="{{ article.image.url }}" alt="Article image">
+                    </a>
+                    <p class="card-text">{{ article.body|slice:":100" }}...</p>
+                    <!-- Show edit/delete links if user is the author -->
+                    {% if user == article.author %}
+                        <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-info mx-2">Edit</a>
+                        <a href="{% url 'article_delete' article.pk %}" class="btn btn-outline-danger">Delete</a>
+                    {% endif %}
+                </div>
+
+                <!-- Footer -->
+                <!-- Show number of comments if any -->
+                <div class="card-footer text-muted bg-light">
+                    {{ article.comments.count }} comment{{ article.comments.count|pluralize }}
+                </div>
+
+            </div>
 
         {% endfor %}
 
