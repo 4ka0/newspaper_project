@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
     <div class="card mb-5">
         <div class="article-entry">
 
@@ -11,6 +12,7 @@
             </div>
 
             <div class="card-body">
+                <img class="image-detail" src="{{ article.image.url }}" alt="Article image">
                 {{ object.body|linebreaksbr }}<br />
 
                 <!-- Show edit/delete links if user is the author -->
@@ -36,4 +38,5 @@
 
         </div>
     </div>
+
 {% endblock content %}

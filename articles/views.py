@@ -22,7 +22,7 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
-    fields = ('title', 'body',)
+    fields = ('title', 'body', 'image')
     template_name = 'article_edit.html'
     login_url = 'login'
 
@@ -50,7 +50,7 @@ logged in. Necessary to include LoginRequiredMixin before CreateView.
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     template_name = 'article_new.html'
-    fields = ('title', 'body')
+    fields = ('title', 'body', 'image')
     login_url = 'login'  # overrides the default login url which is /accounts/login
 
     # Automatically sets the current user as the author of the new article
