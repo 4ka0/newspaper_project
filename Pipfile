@@ -11,6 +11,7 @@ django-crispy-forms = "*"
 gunicorn = "*"
 python-decouple = "*"
 pylint = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
