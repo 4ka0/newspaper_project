@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # Third party
     'crispy_forms',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -126,23 +127,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files URL
-STATIC_URL = '/static/'
-
-# Location of static files during development, here this is a top-level directory
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-# Location from which static files are served in production
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# For uploaded image files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 # User authentication
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -164,3 +148,37 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+
+'''
+# Conventional static file settings
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+'''
+
+USE_S3 = config('USE_S3')
+
+if USE_S3:
+    # AWS settings
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_DEFAULT_ACL = 'public-read'
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+    # S3 static settings
+    AWS_LOCATION = 'static'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
