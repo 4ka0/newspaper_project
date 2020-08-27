@@ -24,9 +24,10 @@ Includes user authorization through the use of mixins, specifically the LoginReq
 
 Extended beyond the textbook by:</br>
 * separating sensitive information from the codebase using python-decouple,
-* adding functionality to upload images,
-* making it possible to add comments to articles from the front end rather than only via the back-end admin app, and
-* improving the front-end styling.</br>
+* serving static and media files from an AWS S3 bucket,
+* adding functionality for uploading images from the front end,
+* adding functionality for adding comments to articles from the front end rather than only via the back-end admin app as in the original tutorial, and
+* improving the overall front-end styling.</br>
 
 ### Built using:
 
