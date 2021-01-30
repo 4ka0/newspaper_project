@@ -29,6 +29,9 @@ Extended beyond the textbook by:</br>
 * adding functionality for adding comments to articles from the front end rather than only via the back-end admin app as in the original tutorial, and
 * improving the overall front-end styling.</br>
 
+Possible improvements:
+* Improve image loading speed.
+
 ### Built using:
 
 * Python 3.7
