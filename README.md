@@ -30,7 +30,7 @@ Extended beyond the textbook by:</br>
 * improving the overall front-end styling.</br>
 
 Possible improvements:
-* Speed up image loading ()
+* Improve image loading speed.
 
 ### Built using:
 
