@@ -5,11 +5,21 @@
 {% block title %}Sign Up{% endblock title %}
 
 {% block content %}
-    <h3>Sign Up</h3>
-    <br />
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-outline-primary" type="submit">Sign Up</button>
-    </form>
+
+<div class="card card-large">
+
+    <div class="card-header text-center" >
+        <h3>Sign Up</h3>
+    </div>
+
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-outline-primary" type="submit">Sign Up</button>
+        </form>
+    </div>
+    
+</div>
+
 {% endblock content %}

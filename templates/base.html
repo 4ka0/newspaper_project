@@ -24,31 +24,28 @@
     <div class="container-fluid">
         <div class="row">
 
-            <!-- Left column for action buttons -->
+            <!-- Left column for author login -->
             <div class="col-2 pl-4">
 
-                <!-- Action button card -->
-                <div class="card mt-4 pt-2 article-title">
+                <!-- Author login card -->
+                <div class="card mt-4 mr-2 pt-1 author-login">
                     <div class="card-body text-center">
-                        <p><a href="{% url 'home' %}">About</a></p>
-                        <p><a href="{% url 'article_list' %}">All articles</a></p>
-                        <p><a href="{% url 'article_new' %}">New article</a></p>
+
+                        <a class="btn btn-outline-primary" href="{% url 'article_list' %}" role="button">Home</a>
                         <hr>
                         {% if user.is_authenticated %}
-                            <p>Logged in as "{{ user.username }}"</p>
-                            <!-- Log out button -->
+                            <p>Logged in as "{{ user.username }}".</p>
+                            <p><a href="{% url 'article_new' %}">New article</a></p>
                             <p><a href="{% url 'logout' %}">Log out</a></p>
-                            <!-- Change password button -->
                             <p><a href="{% url 'password_change'%}">Change password</a></p>
                         {% else %}
-                            <p>You are not logged in.</p>
-                            <!-- Log in button -->
+                            <p>You are not logged in as an author.</p>
+                            <p>(Log in to add new articles or edit/delete current articles.)</p>
                             <p><a href="{% url 'login' %}">Log in</a></p>
-                            <!-- Password reset -->
                             <p><a href="{% url 'password_reset' %}">Forgotten your password?</a></p>
-                            <!-- Sign up button -->
-                            <p><a href="{% url 'signup' %}">Sign up</a></p>
+                            <p><a href="{% url 'signup' %}">Sign up to add articles</a></p>
                         {% endif %}
+
                     </div>
                 </div>
 

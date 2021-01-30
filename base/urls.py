@@ -5,9 +5,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('pages.urls')),
-    path('users/', include('users.urls')),  # To include the users app at the '/users' url
-    path('users/', include('django.contrib.auth.urls')),  # To include the built-in auth app (has its own urls for login and logout)
-    path('articles/', include('articles.urls')),
+    path('fish1234/', admin.site.urls),
+    path('users/', include('users.urls')),
+    path('users/', include('django.contrib.auth.urls')),
+    path('', include('articles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

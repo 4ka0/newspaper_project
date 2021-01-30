@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Articles{% endblock title %}
+{% block title %}Simple Newspaper{% endblock title %}
 
 {% block content %}
 
@@ -26,11 +26,13 @@
                     <a href="{% url 'article_detail' article.pk %}">
                         <img class="card-img-top pb-3" src="{{ article.image.url }}" alt="Article image">
                     </a>
-                    <p class="card-text">{{ article.body|slice:":100" }}...</p>
+                    <p class="card-text">{{ article.body|slice:":90" }}...</p>
                     <!-- Show edit/delete links if user is the author -->
                     {% if user == article.author %}
-                        <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-info mx-2">Edit</a>
-                        <a href="{% url 'article_delete' article.pk %}" class="btn btn-outline-danger">Delete</a>
+                        <div class="text-center">
+                            <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-info mr-3">Edit</a>
+                            <a href="{% url 'article_delete' article.pk %}" class="btn btn-outline-danger">Delete</a>
+                        </div>
                     {% endif %}
                 </div>
 

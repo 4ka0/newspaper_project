@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
     # Local
     'users.apps.UsersConfig',
-    'pages.apps.PagesConfig',
     'articles.apps.ArticlesConfig',
 
     # Third party
@@ -131,8 +130,8 @@ USE_TZ = True
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Redirect URLs once logged in/out
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'article_list'
+LOGOUT_REDIRECT_URL = 'article_list'
 
 # For django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -150,7 +149,7 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
 
-'''
+"""
 # Conventional static file settings
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
@@ -158,7 +157,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-'''
+"""
+
 
 USE_S3 = config('USE_S3')
 

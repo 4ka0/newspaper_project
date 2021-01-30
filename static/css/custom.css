@@ -3,19 +3,23 @@ body {
 }
 
 .page-header {
-    background-color: #ffffff;
+    background-color: rgb(62, 91, 127);
     padding: 30px 20px 20px 20px;
     text-align: center;
     font-family: 'Merriweather', serif;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ee6c4d;
+    color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
 }
 
 .page-header h1 a:hover {
+    color: #ee6c4d;
+}
+
+.author-login {
     color: #3d5a80;
 }
 
@@ -45,4 +49,11 @@ body {
 
 .card-body {
     overflow: hidden;
+}
+
+.card-large {
+    color: #3d5a80;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 30px;
 }

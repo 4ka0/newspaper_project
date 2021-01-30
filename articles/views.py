@@ -8,16 +8,14 @@ from .models import Article, Comment
 from .forms import CommentForm
 
 
-class ArticleListView(LoginRequiredMixin, ListView):
+class ArticleListView(ListView):
     model = Article
     template_name = 'article_list.html'
-    login_url = 'login'
 
 
-class ArticleDetailView(LoginRequiredMixin, DetailView):
+class ArticleDetailView(DetailView):
     model = Article
     template_name = 'article_detail.html'
-    login_url = 'login'
 
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
