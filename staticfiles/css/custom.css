@@ -3,25 +3,33 @@ body {
 }
 
 .page-header {
-    background-color: #ffffff;
+    background-color: rgb(62, 91, 127);
     padding: 30px 20px 20px 20px;
     text-align: center;
     font-family: 'Merriweather', serif;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ee6c4d;
+    color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
 }
 
 .page-header h1 a:hover {
+    color: #ee6c4d;
+}
+
+.author-login {
     color: #3d5a80;
 }
 
 .article-title {
     color: #3d5a80;
     text-decoration: none;
+}
+
+.no-margin {
+    margin-bottom: 0;
 }
 
 .article-title a, .article-title a:visited, .article-title a:active {
@@ -43,6 +51,24 @@ body {
     margin-bottom: 14px;
 }
 
+.image-list {
+    width: 200px;
+    height: auto;
+    float: right;
+    margin-top: 2px;
+    margin-left: 14px;
+    margin-bottom: 0px;
+}
+
 .card-body {
     overflow: hidden;
 }
+
+.card-large {
+    color: #3d5a80;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+p:last-child{ margin-bottom:0px;}
