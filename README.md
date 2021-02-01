@@ -36,6 +36,8 @@ Extended beyond the textbook project by:</br>
 * Visual Studio Code 1.47.3
 * macOS 10.14.6
 * Heroku
+* AWS S3
+* SendGrid
 * Pipenv
 
 ### Screenshots:
