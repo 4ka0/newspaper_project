@@ -19,11 +19,11 @@ User authorization achieved through the use of mixins to restrict access to logg
 Uses Django's generic class-based views to provide CRUD functionality for handling articles.</br>
 
 Extended beyond the textbook project by:</br>
-* separating sensitive information from the codebase,
-* adding functionality for uploading images from the front end,
-* serving static and image files from an AWS S3 bucket,
-* adding functionality for adding comments to articles, and
-* improving the overall front-end styling.</br>
+* Separating sensitive information from the codebase
+* Adding functionality for uploading images from the front end
+* Serving static and image files from an AWS S3 bucket
+* Adding functionality for adding comments to articles
+* Improving the overall front-end styling</br>
 
 ### Built using:
 
