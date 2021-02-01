@@ -22,7 +22,7 @@ Extended beyond the textbook project by:</br>
 * Separating sensitive information from the codebase
 * Adding functionality for uploading images from the front end
 * Serving static and image files from an AWS S3 bucket
-* Adding functionality for adding comments to articles
+* Including functionality for adding comments to articles
 * Improving the overall front-end styling</br>
 
 ### Built using:
