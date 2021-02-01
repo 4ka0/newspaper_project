@@ -48,10 +48,13 @@ Possible improvements:
 ### Screenshots:
 
 List view (logged out):
+
 ![alt text](readme_screenshot_1.png "Article list screenshot (logged out)")</br>
 
 List view (logged in):
+
 ![alt text](readme_screenshot_2.png "Article list screenshot (logged in)")
 
 Detail view:
+
 ![alt text](readme_screenshot_3.png "Article detail screenshot")
