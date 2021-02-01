@@ -11,6 +11,7 @@ from .forms import CommentForm
 class ArticleListView(ListView):
     model = Article
     template_name = 'article_list.html'
+    queryset = Article.objects.order_by('-date')
 
 
 class ArticleDetailView(DetailView):
