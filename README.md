@@ -6,7 +6,9 @@ A basic newspaper application that displays news articles.
 
 Built following chapters 8-15 of [Django for Beginners](https://djangoforbeginners.com).</br>
 
-[Live demo](https://jjl-newspaper.herokuapp.com) (hosted on the Heroku free tier so takes a little time to load up)
+[Live demo](https://jjl-newspaper.herokuapp.com)
+
+(May take a little time to spin up as it's hosted on the Heroku free tier.)
 
 ### Features
 
